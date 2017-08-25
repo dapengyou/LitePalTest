@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.test.litepaltest.MainActivity">
+
+    <Button
+        android:id="@+id/bt_createDatabase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建数据库" />
+
+    <Button
+        android:id="@+id/bt_addTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加表数据" />
+
+    <Button
+        android:id="@+id/bt_updateTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="修改指定id表数据" />
+
+    <Button
+        android:id="@+id/bt_updateTable2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="有限制的修改表数据" />
+
+    <Button
+        android:id="@+id/bt_deleteTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="删除表数据" />
+
+    <Button
+        android:id="@+id/bt_deleteTable2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="有条件的删除表数据" />
+
+    <Button
+        android:id="@+id/bt_query"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查询数据" />
+</LinearLayout>
