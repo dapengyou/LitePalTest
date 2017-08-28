@@ -1,6 +1,5 @@
 package com.test.litepaltest;
 
-import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
@@ -43,9 +42,9 @@ public class DataAdpter extends BaseQuickAdapter<BookBean, BaseViewHolder> {
         super.onBindViewHolder(holder, position, payloads);
         if (position == 0) {
             holder.getConvertView().findViewById(R.id.tv_sticky_header_view).setVisibility(View.GONE);
-            holder.setText(R.id.tv_sticky_header_view, String.valueOf(mBookList.get(0).getId()));
-            // 第一个item的吸顶信息肯定是展示的，并且标记tag为FIRST_STICKY_VIEW
-            holder.itemView.setTag(FIRST_STICKY_VIEW);
+//            holder.setText(R.id.tv_sticky_header_view, String.valueOf(mBookList.get(0).getId()));
+//            // 第一个item的吸顶信息肯定是展示的，并且标记tag为FIRST_STICKY_VIEW
+//            holder.itemView.setTag(FIRST_STICKY_VIEW);
 
         } else {
             // 之后的item都会和前一个item要展示的吸顶信息进行比较，不相同就展示，并且标记tag为HAS_STICKY_VIEW
