@@ -2,12 +2,14 @@ package com.test.litepaltest;
 
 import org.litepal.crud.DataSupport;
 
+import java.io.Serializable;
+
 /**
  * Created by lady_zhou on 2017/8/23.
  */
 
-public class BookBean extends DataSupport {
-    private String id;
+public class BookBean extends DataSupport implements Serializable {
+    private int id;
     private String bookName; //书名
     private String authorName;//作者名
 
@@ -27,11 +29,11 @@ public class BookBean extends DataSupport {
         this.authorName = authorName;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

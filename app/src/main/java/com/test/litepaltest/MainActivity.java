@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -54,17 +56,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_addTable:
                 BookBean bookBean = new BookBean();
+                bookBean.setId(1);
                 bookBean.setBookName("百年孤独");
                 bookBean.setAuthorName("李三");
                 bookBean.save();
                 BookBean bookBean2 = new BookBean();
+                bookBean2.setId(2);
                 bookBean2.setBookName("城市集聚区");
                 bookBean2.setAuthorName("冯四爷");
                 bookBean2.save();
                 BookBean bookBean3 = new BookBean();
+                bookBean3.setId(3);
                 bookBean3.setBookName("笑看江湖");
                 bookBean3.setAuthorName("烈焰");
                 bookBean3.save();
+                BookBean bookBean4 = new BookBean();
+                bookBean4.setId(4);
+                bookBean4.setBookName("天下无敌");
+                bookBean4.setAuthorName("红唇");
+                bookBean4.save();
+                BookBean bookBean5 = new BookBean();
+                bookBean5.setId(5);
+                bookBean5.setBookName("你开心么");
+                bookBean5.setAuthorName("不");
+                bookBean5.save();
+                BookBean bookBean6 = new BookBean();
+                bookBean6.setId(6);
+                bookBean6.setBookName("口袋宝");
+                bookBean6.setAuthorName("哈哈哈");
+                bookBean6.save();
                 Toast.makeText(this, "成功", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bt_updateTable:
@@ -81,23 +101,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_deleteTable:
                 //删除了第一条
-                DataSupport.delete(BookBean.class, 1);
-                Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+//                DataSupport.delete(BookBean.class, 1);
+//                Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
+
+                //删除数据库
+//                LitePal.deleteDatabase("BookDemo");
                 break;
             case R.id.bt_deleteTable2:
                 //有条件的删除
-                DataSupport.deleteAll(BookBean.class, "bookName=?", "笑看江湖");
+                DataSupport.deleteAll(BookBean.class, "authorName=?", "李三");
                 Toast.makeText(this, "删除成功", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.bt_query:
                 List<BookBean> allBooks = DataSupport.findAll(BookBean.class);
-                BookBean bookInfo = new BookBean();
-                for (BookBean book : allBooks) {
-                    bookInfo.setId(book.getId());
-                    bookInfo.setAuthorName(book.getAuthorName());
-                    bookInfo.setBookName(book.getBookName());
-                }
-                startActivity(new Intent(this,DataListActivity.class));
+//                BookBean bookInfo = new BookBean();
+//                for (BookBean book : allBooks) {
+//                    bookInfo.setId(book.getId());
+//                    bookInfo.setAuthorName(book.getAuthorName());
+//                    bookInfo.setBookName(book.getBookName());
+//                    allBooks.add(bookInfo);
+//                }
+
+                Intent intent = new Intent(this, DataListActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(DataListActivity.DATALIST, (Serializable) allBooks);
+                intent.putExtras(bundle);
+                startActivity(intent);
                 break;
 
         }

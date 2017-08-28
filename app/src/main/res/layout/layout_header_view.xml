@@ -3,7 +3,7 @@
     android:id="@+id/tv_sticky_header_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#dddddd"
+    android:background="#d0d0dd"
     android:padding="10dp"
     android:textColor="#000000"
     android:textSize="14sp" />
