@@ -43,8 +43,8 @@ public class DataListActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mDataAdpter = new DataAdpter(bookBeanList);
         mRecyclerView.setAdapter(mDataAdpter);
-
-        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        //第一种方法
+       /* mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -86,6 +86,8 @@ public class DataListActivity extends AppCompatActivity {
                 }
             }
         });
-
+*/
+        //第二种方法
+       mRecyclerView.addItemDecoration(new MyItemDecoration(this,bookBeanList));
     }
 }
